@@ -9,7 +9,7 @@ license = "Apache-2.0"
 repository = "https://github.com/EasiStack/easi-publish"
 documentation = "https://docs.rs/easi-publish"
 readme = "README.md"
-keywords = [ "axum", "typst", "template", "pdf", "html", "report"]
+keywords = [ "axum", "typst", "template", "pdf", "html" ]
 categories = ["template-engine", "text-processing"]
 
 [lib]

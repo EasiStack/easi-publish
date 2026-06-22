@@ -1,0 +1,76 @@
+[package]
+name = "easi-publish"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+description = "Compile Typst templates with data into PDF or HTML documents."
+authors = ["EasiStack"]
+license = "Apache-2.0"
+repository = "https://github.com/EasiStack/easi-publish"
+documentation = "https://docs.rs/easi-publish"
+readme = "README.md"
+keywords = ["typst", "template", "pdf", "html", "report"]
+categories = ["template-engine", "text-processing"]
+
+# Test/bench scaffolding isn't part of the published library (fixtures are read
+# at runtime only by our own tests/benches, never compiled into the lib).
+# Excluding it keeps the published tarball lean.
+exclude = ["tests/", "benches/"]
+
+[lib]
+name = "easi_publish"
+path = "src/lib.rs"
+
+[dependencies]
+typst = "0.15"
+typst-kit = { version = "0.15", features = ["embedded-fonts", "scan-fonts"] }
+
+# Typst's memoization cache. Version MUST resolve to the same instance Typst
+# uses (the cache is a per-version process global), so `evict_cache` evicts the
+# cache Typst actually populates. Kept in lockstep with the typst-* crates.
+comemo = "0.5"
+chrono = "0.4"
+thiserror = "2"
+serde = "1"
+serde_json = "1"
+
+# Optional: for PDF export 
+typst-layout = { version = "0.15", optional = true }
+typst-pdf = { version = "0.15", optional = true }
+
+# Optional: for HTML export 
+typst-html = { version = "0.15", optional = true }
+
+# Optional: for image pre-processing helpers that downscale images. 
+image = { version = "0.25", default-features = false, features = [
+    "png",
+    "jpeg",
+], optional = true }
+
+# Optional: for async calls to limit concurrency
+tokio = { version = "1.52", features = ["rt", "sync", "time"], optional = true}
+
+[features]
+# PDF is the most common use, so it's on by default. Disable default features
+# to opt out (e.g. for an HTML-only build).
+default = ["pdf"]
+
+# Enables PDF export
+pdf = ["dep:typst-pdf", "dep:typst-layout"]
+
+# Enables HTML export
+html = ["dep:typst-html"]
+
+# Enables `downscale_image` and pulls the `image` codec dependency.
+image = ["dep:image"]
+
+# Enables async concurrency limiter
+tokio = ["dep:tokio"]
+
+[dev-dependencies]
+serde = { version = "1", features = ["derive"] }
+criterion = "0.5.1"
+
+[[bench]]
+name = "render"
+harness = false

@@ -1,0 +1,67 @@
+{
+  "invoice_number": "INV-2026-0042",
+  "date_issued": "2026-04-07",
+  "date_due": "2026-05-07",
+  "currency": "USD",
+  "currency_symbol": "$",
+
+  "from": {
+    "name": "Acme Solutions Ltd.",
+    "address": ["123 Business Park", "Suite 400", "Cape Town, 8001", "South Africa"],
+    "email": "billing@acme.co.za",
+    "phone": "+27 21 555 0100",
+    "vat": "ZA4010123456"
+  },
+
+  "to": {
+    "name": "Widget Corp.",
+    "address": ["456 Innovation Drive", "Floor 2", "Johannesburg, 2000", "South Africa"],
+    "email": "accounts@widgetcorp.co.za",
+    "vat": "ZA4020654321"
+  },
+
+  "items": [
+    {
+      "description": "Web Application Development",
+      "detail": "Frontend and backend implementation — Phase 1",
+      "quantity": 120,
+      "unit_price": "150.00",
+      "amount": "18000.00"
+    },
+    {
+      "description": "UI/UX Design",
+      "detail": "Wireframes, prototypes, and design system",
+      "quantity": 40,
+      "unit_price": "130.00",
+      "amount": "5200.00"
+    },
+    {
+      "description": "Cloud Infrastructure Setup",
+      "quantity": 1,
+      "unit_price": "2500.00",
+      "amount": "2500.00"
+    },
+    {
+      "description": "Monthly Hosting",
+      "detail": "April 2026",
+      "quantity": 1,
+      "unit_price": "350.00",
+      "amount": "350.00"
+    }
+  ],
+
+  "subtotal": "26050.00",
+  "tax_label": "VAT (15%)",
+  "tax_amount": "3907.50",
+  "discount": null,
+  "total": "29957.50",
+
+  "payment": {
+    "Bank": "First National Bank",
+    "Account": "62012345678",
+    "Branch Code": "250655",
+    "Reference": "INV-2026-0042"
+  },
+
+  "notes": "Payment is due within 30 days. Late payments may incur a 2% monthly interest charge. Thank you for your business!"
+}

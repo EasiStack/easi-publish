@@ -1,0 +1,19 @@
+[package]
+name = "invoice"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+askama = "0.15.6"
+axum = "0.8"
+
+# Enable both output backends so the example can render PDF and HTML.
+easi-publish-axum = { path = "../../easi-publish-axum", features = ["pdf", "html"] }
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+tower-http = { version = "0.6", features = ["fs"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt"] }

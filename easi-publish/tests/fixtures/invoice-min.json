@@ -1,0 +1,10 @@
+{
+  "invoice_number": "INV-001",
+  "date": "2026-06-20",
+  "items": [
+    { "description": "Consulting services", "quantity": 10, "amount": "$1,000.00" },
+    { "description": "UI design", "quantity": 5, "amount": "$500.00" },
+    { "description": "Hosting (monthly)", "quantity": 1, "amount": "$50.00" }
+  ],
+  "total": "$1,550.00"
+}

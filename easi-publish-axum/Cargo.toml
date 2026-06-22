@@ -1,0 +1,39 @@
+[package]
+name = "easi-publish-axum"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+description = "Axum integration for easi-publish: render Typst templates to PDF or HTML responses."
+authors = ["EasiStack"]
+license = "Apache-2.0"
+repository = "https://github.com/EasiStack/easi-publish"
+documentation = "https://docs.rs/easi-publish"
+readme = "README.md"
+keywords = [ "axum", "typst", "template", "pdf", "html", "report"]
+categories = ["template-engine", "text-processing"]
+
+[lib]
+name = "easi_publish_axum"
+path = "src/lib.rs"
+
+[dependencies]
+# `tokio` is always on: it enables Renderer::render_*_async, used by the
+# `from_renderer` constructors (axum handlers are already async). The `pdf` /
+# `html` output backends are opt-in and forwarded from this crate's features.
+easi-publish = { path = "../easi-publish", default-features = false, features = ["tokio"] }
+axum = "0.8"
+http = "1"
+serde_json = "1"
+tracing = "0.1"
+
+[features]
+# Mirrors easi-publish: PDF on by default, HTML opt-in. Disable default features
+# for an HTML-only build.
+default = ["pdf"]
+# Enables `PdfResponse` and forwards the PDF backend to easi-publish.
+pdf = ["easi-publish/pdf"]
+# Enables `HtmlResponse` and forwards the HTML backend to easi-publish.
+html = ["easi-publish/html"]
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }

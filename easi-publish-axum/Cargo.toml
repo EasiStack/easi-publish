@@ -20,7 +20,7 @@ path = "src/lib.rs"
 # `tokio` is always on: it enables Renderer::render_*_async, used by the
 # `from_renderer` constructors (axum handlers are already async). The `pdf` /
 # `html` output backends are opt-in and forwarded from this crate's features.
-easi-publish = { path = "../easi-publish", default-features = false, features = ["tokio"] }
+easi-publish = { path = "../easi-publish", version = "0.1.0", default-features = false, features = ["tokio"] }
 axum = "0.8"
 http = "1"
 serde_json = "1"

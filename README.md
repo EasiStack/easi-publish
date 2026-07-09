@@ -6,10 +6,17 @@
   </picture>
 </p>
 
-# `easi-publish`
+# easi-publish
 
-**easi-publish** compiles [Typst] templates with user-supplied data into PDF or HTML documents. 
-**easi-publish-axum** provides [Axum](https://github.com/tokio-rs/axum) integration for the easi-publish crate to render Typst templates into PDF or HTML HTTP responses.
+**easi-publish**\
+Compiles [Typst] templates with user-supplied data into PDF or HTML documents.\
+[![Crates.io](https://img.shields.io/crates/v/easi-publish)](https://crates.io/crates/easi-publish)
+
+**easi-publish-axum**\
+Provides [Axum](https://github.com/tokio-rs/axum) integration for the easi-publish crate to render Typst templates into PDF or HTML HTTP responses.\
+[![Crates.io](https://img.shields.io/crates/v/easi-publish-axum)](https://crates.io/crates/easi-publish-axum)
+
+
 
 ## Quick start
 

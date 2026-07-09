@@ -6,7 +6,7 @@
   </picture>
 </p>
 
-# `easi-publish`
+# easi-publish
 
 **easi-publish**\
 Compiles [Typst] templates with user-supplied data into PDF or HTML documents.\
